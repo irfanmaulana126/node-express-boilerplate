@@ -41,13 +41,13 @@ if (process.argv.length < 3) {
 const ownPath = process.cwd();
 const folderName = process.argv[2];
 const appPath = path.join(ownPath, folderName);
-const repo = 'https://github.com/hagopj13/node-express-boilerplate.git';
+const repo = '';
 
 // Check if directory already exists
 try {
   fs.mkdirSync(appPath);
 } catch (err) {
-  if (err.code === 'EEXIST') {
+  if (err.code === 'EXIST') {
     console.log('Directory already exists. Please choose another name for the project.');
   } else {
     console.log(error);
