@@ -6,10 +6,30 @@ const { roles } = require('../config/roles');
 
 const userSchema = mongoose.Schema(
   {
-    name: {
+    first_name: {
       type: String,
       required: true,
       trim: true,
+    },
+    last_name: {
+      type: String,
+      required: false,
+      trim: true,
+    },
+    phone: {
+      type: Number,
+      required: true,
+      trim: true,
+    },
+    id_card: {
+      type: String,
+      required: false,
+      trim: true,
+    },
+    language: {
+      type: String,
+      trim: true,
+      default: 'ID',
     },
     email: {
       type: String,
@@ -41,6 +61,10 @@ const userSchema = mongoose.Schema(
       default: 'user',
     },
     isEmailVerified: {
+      type: Boolean,
+      default: false,
+    },
+    verifiedStatus: {
       type: Boolean,
       default: false,
     },

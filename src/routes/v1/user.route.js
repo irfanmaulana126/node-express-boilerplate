@@ -42,12 +42,21 @@ module.exports = router;
  *           schema:
  *             type: object
  *             required:
- *               - name
+ *               - firs_name
+ *               - phone
  *               - email
  *               - password
  *               - role
  *             properties:
- *               name:
+ *               first_name:
+ *                 type: string
+ *               last_name:
+ *                 type: string
+ *               id_card:
+ *                 type: string
+ *               phone:
+ *                 type: number
+ *               language:
  *                 type: string
  *               email:
  *                 type: string
@@ -62,7 +71,11 @@ module.exports = router;
  *                  type: string
  *                  enum: [user, admin]
  *             example:
- *               name: fake name
+ *               first_name: fake
+ *               last_name: name
+ *               id_card: 1234817
+ *               phone: 081923
+ *               language: ID
  *               email: fake@example.com
  *               password: password1
  *               role: user
@@ -88,10 +101,25 @@ module.exports = router;
  *       - bearerAuth: []
  *     parameters:
  *       - in: query
- *         name: name
+ *         name: first_name
  *         schema:
  *           type: string
- *         description: User name
+ *         description: User First Name
+ *       - in: query
+ *         name: last_name
+ *         schema:
+ *           type: string
+ *         description: User Last Name
+ *       - in: query
+ *         name: id_card
+ *         schema:
+ *           type: string
+ *         description: User ID Card
+ *       - in: query
+ *         name: phone
+ *         schema:
+ *           type: string
+ *         description: User Phone
  *       - in: query
  *         name: role
  *         schema:
@@ -196,7 +224,15 @@ module.exports = router;
  *           schema:
  *             type: object
  *             properties:
- *               name:
+ *               first_name:
+ *                 type: string
+ *               last_name:
+ *                 type: string
+ *               id_card:
+ *                 type: string
+ *               phone:
+ *                 type: number
+ *               language:
  *                 type: string
  *               email:
  *                 type: string
@@ -208,7 +244,11 @@ module.exports = router;
  *                 minLength: 8
  *                 description: At least one number and one letter
  *             example:
- *               name: fake name
+ *               first_name: fake
+ *               last_name: name
+ *               id_card: 1234817
+ *               phone: 081923
+ *               language: ID
  *               email: fake@example.com
  *               password: password1
  *     responses:

@@ -37,11 +37,20 @@ module.exports = router;
  *           schema:
  *             type: object
  *             required:
- *               - name
+ *               - first_name
+ *               - phone
  *               - email
  *               - password
  *             properties:
- *               name:
+ *               first_name:
+ *                 type: string
+ *               last_name:
+ *                 type: string
+ *               id_card:
+ *                 type: string
+ *               phone:
+ *                 type: number
+ *               language:
  *                 type: string
  *               email:
  *                 type: string
@@ -53,7 +62,11 @@ module.exports = router;
  *                 minLength: 8
  *                 description: At least one number and one letter
  *             example:
- *               name: fake name
+ *               first_name: fake
+ *               last_name: name
+ *               id_card: 1234817
+ *               phone: 081923
+ *               language: ID
  *               email: fake@example.com
  *               password: password1
  *     responses:
