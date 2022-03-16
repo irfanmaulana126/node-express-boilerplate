@@ -2,7 +2,7 @@ const express = require('express');
 const authRoute = require('./auth.route');
 const userRoute = require('./user.route');
 const docsRoute = require('./docs.route');
-const config = require('../../config/config');
+// const config = require('../../config/config');
 
 const router = express.Router();
 
@@ -29,11 +29,14 @@ defaultRoutes.forEach((route) => {
   router.use(route.path, route.route);
 });
 
-/* istanbul ignore next */
-if (config.env === 'development') {
-  devRoutes.forEach((route) => {
-    router.use(route.path, route.route);
-  });
-}
+/* istanbul ignore next this real code */
+// if (config.env === 'development') {
+//   devRoutes.forEach((route) => {
+//     router.use(route.path, route.route);
+//   });
+// }
+devRoutes.forEach((route) => {
+  router.use(route.path, route.route);
+});
 
 module.exports = router;
