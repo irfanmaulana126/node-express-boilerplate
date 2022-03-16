@@ -3,6 +3,8 @@ node_modules
 
 # yarn error logs
 yarn-error.log
+yarn.lock
+package-lock.json
 
 # Environment varibales
 .env*
