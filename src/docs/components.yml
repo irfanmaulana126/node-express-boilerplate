@@ -31,6 +31,18 @@ components:
         email: fake@example.com
         password: password1
         role: user
+    
+    Country:
+      type: object
+      properties:
+        name_country:
+          type: string
+        code:
+          type: string
+      example:
+        id: 5ebac534954b54139806c112
+        name_country: Indonesia
+        code: ID
 
     Token:
       type: object
@@ -70,6 +82,15 @@ components:
           example:
             code: 400
             message: Email already taken
+    DuplicateCode:
+      description: Code already taken
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            code: 400
+            message: Code already taken
     Unauthorized:
       description: Unauthorized
       content:
