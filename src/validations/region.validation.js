@@ -33,9 +33,51 @@ const deleteProvince = {
   }),
 };
 
+const createRegency = {
+  body: Joi.object().keys({
+    id_province: Joi.string().required(),
+    kd_province: Joi.string().required(),
+    kd_regency: Joi.string().required(),
+    name_regency: Joi.string().required(),
+  }),
+};
+const getRegency = {
+  query: Joi.object().keys({
+    id_province: Joi.string(),
+    kd_province: Joi.string(),
+    kd_regency: Joi.string(),
+    name_regency: Joi.string(),
+    sortBy: Joi.string(),
+    limit: Joi.number().integer(),
+    page: Joi.number().integer(),
+  }),
+};
+const updateRegency = {
+  params: Joi.object().keys({
+    regencyId: Joi.required().custom(objectId),
+  }),
+  body: Joi.object()
+    .keys({
+      id_province: Joi.string(),
+      kd_province: Joi.string(),
+      kd_regency: Joi.string(),
+      name_regency: Joi.string(),
+    })
+    .min(1),
+};
+const deleteRegency = {
+  params: Joi.object().keys({
+    regencyId: Joi.string().custom(objectId),
+  }),
+};
+
 module.exports = {
   createProvince,
   getProvince,
   updateProvince,
   deleteProvince,
+  createRegency,
+  getRegency,
+  updateRegency,
+  deleteRegency,
 };
