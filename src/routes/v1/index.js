@@ -2,6 +2,7 @@ const express = require('express');
 const authRoute = require('./auth.route');
 const userRoute = require('./user.route');
 const countryRoute = require('./country.route');
+const regionRoute = require('./region.route');
 const docsRoute = require('./docs.route');
 // const config = require('../../config/config');
 
@@ -19,6 +20,10 @@ const defaultRoutes = [
   {
     path: '/countries',
     route: countryRoute,
+  },
+  {
+    path: '/region',
+    route: regionRoute,
   },
 ];
 

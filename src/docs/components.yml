@@ -44,6 +44,18 @@ components:
         name_country: Indonesia
         code: ID
 
+    Province:
+      type: object
+      properties:
+        name_province:
+          type: string
+        kd_province:
+          type: string
+      example:
+        id: 5ebac534954b54139806c112
+        name_country: Jawa Barat
+        kd_province: "31"
+
     Token:
       type: object
       properties:
