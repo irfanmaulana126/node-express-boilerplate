@@ -1,14 +1,12 @@
-# Dependencies
-node_modules
+# IDE Files
+#-------------------------
+/nbproject/
+.idea/*
 
-# yarn error logs
-yarn-error.log
-yarn.lock
-package-lock.json
+## Sublime Text cache files
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+*.sublime-workspace
+*.sublime-project
 
-# Environment varibales
-.env*
-!.env*.example
-
-# Code coverage
-coverage
