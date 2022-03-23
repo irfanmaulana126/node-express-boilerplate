@@ -64,6 +64,65 @@ const deleteRegency = catchAsync(async (req, res) => {
   res.status(httpStatus.NO_CONTENT).send();
 });
 
+const createDistrict = catchAsync(async (req, res) => {
+  const districts = await regionService.createDistricts(req.body);
+  res.status(httpStatus.CREATED).send(districts);
+});
+
+const getVillages = catchAsync(async (req, res) => {
+  const filter = pick(req.query, ['id_districts', 'kd_districts', 'kd_village', 'name_village']);
+  const options = pick(req.query, ['sortBy', 'limit', 'page']);
+  const result = await regionService.queryVillage(filter, options);
+  res.send(result);
+});
+
+const getVillage = catchAsync(async (req, res) => {
+  const villages = await regionService.getVillageById(req.params.villagesId);
+  if (!villages) {
+    throw new ApiError(httpStatus.NOT_FOUND, 'villages not found');
+  }
+  res.send(villages);
+});
+
+const updateDistrict = catchAsync(async (req, res) => {
+  const district = await regionService.updateDistrictsById(req.params.districtId, req.body);
+  res.send(district);
+});
+
+const deleteDistrict = catchAsync(async (req, res) => {
+  await regionService.deleteDistrictsById(req.params.regencyId);
+  res.status(httpStatus.NO_CONTENT).send();
+});
+
+const createVillage = catchAsync(async (req, res) => {
+  const villages = await regionService.createVillage(req.body);
+  res.status(httpStatus.CREATED).send(villages);
+});
+
+const getDistricts = catchAsync(async (req, res) => {
+  const filter = pick(req.query, ['id_regency', 'kd_regency', 'kd_district', 'name_district']);
+  const options = pick(req.query, ['sortBy', 'limit', 'page']);
+  const result = await regionService.queryDistricts(filter, options);
+  res.send(result);
+});
+
+const getDistrict = catchAsync(async (req, res) => {
+  const districts = await regionService.getDistrictsById(req.params.districtsId);
+  if (!districts) {
+    throw new ApiError(httpStatus.NOT_FOUND, 'districts not found');
+  }
+  res.send(districts);
+});
+
+const updateVillage = catchAsync(async (req, res) => {
+  const village = await regionService.updateVillageById(req.params.villageId, req.body);
+  res.send(village);
+});
+
+const deleteVillage = catchAsync(async (req, res) => {
+  await regionService.deleteVillageById(req.params.villageId);
+  res.status(httpStatus.NO_CONTENT).send();
+});
 module.exports = {
   createProvince,
   getProvinces,
@@ -75,4 +134,14 @@ module.exports = {
   getRegency,
   updateRegency,
   deleteRegency,
+  createDistrict,
+  getDistrict,
+  getDistricts,
+  updateDistrict,
+  deleteDistrict,
+  createVillage,
+  getVillage,
+  getVillages,
+  updateVillage,
+  deleteVillage,
 };

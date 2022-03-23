@@ -73,6 +73,42 @@ components:
         kd_province: "31"
         name_regency: Depok
         kd_regency: "3111"
+    
+    District:
+      type: object
+      properties:
+        id_regency:
+          type: string
+        kd_regency:
+          type: string
+        kd_district:
+          type: string
+        name_district:
+          type: string
+      example:
+        id: 5ebac534954b54139806c113
+        id_regency: 5ebac534954b54139806c114
+        kd_regency: "3111"
+        name_district: Pancoran Mas
+        kd_district: "311101"
+
+    Village:
+      type: object
+      properties:
+        id_regency:
+          type: string
+        kd_regency:
+          type: string
+        kd_district:
+          type: string
+        name_district:
+          type: string
+      example:
+        id: 5ebac534954b54139806c113
+        id_districts: 5ebac534954b54139806c114
+        kd_districts: "311101"
+        name_village: Bojongsari
+        kd_village: "31110101"
 
     Token:
       type: object

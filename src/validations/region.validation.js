@@ -71,6 +71,82 @@ const deleteRegency = {
   }),
 };
 
+const createDistricts = {
+  body: Joi.object().keys({
+    id_regency: Joi.string().required(),
+    kd_regency: Joi.string().required(),
+    kd_districts: Joi.string().required(),
+    name_districts: Joi.string().required(),
+  }),
+};
+const getDistricts = {
+  query: Joi.object().keys({
+    id_regency: Joi.string(),
+    kd_regency: Joi.string(),
+    kd_districts: Joi.string(),
+    name_districts: Joi.string(),
+    sortBy: Joi.string(),
+    limit: Joi.number().integer(),
+    page: Joi.number().integer(),
+  }),
+};
+const updateDistricts = {
+  params: Joi.object().keys({
+    districtsId: Joi.required().custom(objectId),
+  }),
+  body: Joi.object()
+    .keys({
+      id_regency: Joi.string(),
+      kd_regency: Joi.string(),
+      kd_districts: Joi.string(),
+      name_districts: Joi.string(),
+    })
+    .min(1),
+};
+const deleteDistricts = {
+  params: Joi.object().keys({
+    districtsId: Joi.string().custom(objectId),
+  }),
+};
+
+const createVillage = {
+  body: Joi.object().keys({
+    id_districts: Joi.string().required(),
+    kd_districts: Joi.string().required(),
+    kd_village: Joi.string().required(),
+    name_village: Joi.string().required(),
+  }),
+};
+const getVillage = {
+  query: Joi.object().keys({
+    id_districts: Joi.string(),
+    kd_districts: Joi.string(),
+    kd_village: Joi.string(),
+    name_village: Joi.string(),
+    sortBy: Joi.string(),
+    limit: Joi.number().integer(),
+    page: Joi.number().integer(),
+  }),
+};
+const updateVillage = {
+  params: Joi.object().keys({
+    villageId: Joi.required().custom(objectId),
+  }),
+  body: Joi.object()
+    .keys({
+      id_districts: Joi.string(),
+      kd_districts: Joi.string(),
+      kd_village: Joi.string(),
+      name_village: Joi.string(),
+    })
+    .min(1),
+};
+const deleteVillage = {
+  params: Joi.object().keys({
+    villageId: Joi.string().custom(objectId),
+  }),
+};
+
 module.exports = {
   createProvince,
   getProvince,
@@ -80,4 +156,12 @@ module.exports = {
   getRegency,
   updateRegency,
   deleteRegency,
+  createDistricts,
+  getDistricts,
+  updateDistricts,
+  deleteDistricts,
+  createVillage,
+  getVillage,
+  updateVillage,
+  deleteVillage,
 };
